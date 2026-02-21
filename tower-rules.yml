@@ -1,0 +1,29 @@
+version: 1
+default: ask  # what to do when no rule matches: allow | deny | ask
+
+rules:
+  # Allow all file reads
+  - tool: Read
+    action: allow
+
+  # Allow glob/grep (search is safe)
+  - tool: Glob
+    action: allow
+  - tool: Grep
+    action: allow
+
+  # Allow safe bash commands
+  - tool: Bash
+    command_pattern: "^(ls|cat|git status|git diff|npm test|pytest).*"
+    action: allow
+
+  # Deny destructive bash commands
+  - tool: Bash
+    command_pattern: "rm -rf|git push --force|DROP TABLE"
+    action: deny
+    reason: "Destructive command blocked by Tower"
+
+  # Allow writes only to certain extensions
+  - tool: Write
+    path_pattern: "**/*.{py,js,ts,json,yml,yaml,md}"
+    action: allow

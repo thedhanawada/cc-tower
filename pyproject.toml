@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tower-cli"
+version = "0.1.0"
+description = "Permission evaluation agent for Claude Code"
+requires-python = ">=3.9"
+dependencies = [
+    "pyyaml>=6.0",
+    "InquirerPy>=0.3.4",
+]
+
+[project.scripts]
+tower = "tower.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
