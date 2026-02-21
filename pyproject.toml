@@ -32,9 +32,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/thedhanawada/tower-cli"
-Repository = "https://github.com/thedhanawada/tower-cli"
-Issues = "https://github.com/thedhanawada/tower-cli/issues"
+Homepage = "https://github.com/thedhanawada/cc-tower"
+Repository = "https://github.com/thedhanawada/cc-tower"
+Issues = "https://github.com/thedhanawada/cc-tower/issues"
 
 [project.scripts]
 tower = "tower.cli:main"
