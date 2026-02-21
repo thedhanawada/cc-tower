@@ -1,8 +1,8 @@
 # Tower CLI
 
-Claude Code lets AI run tools on your machine. File reads, writes, bash commands, the lot. By default you're clicking "allow" on every single one, or you yolo it with `--dangerously-skip-permissions`. Neither is great.
+Claude Code's permission system is there for a good reason. It makes sure AI can't run tools on your machine without your say-so. But in practice, you end up clicking "allow" dozens of times per session for things you'd always approve (file reads, grep, git status). The alternative, `--dangerously-skip-permissions`, removes the safety net entirely.
 
-Tower sits between Claude Code and tool execution as a [PreToolUse hook](https://docs.anthropic.com/en/docs/claude-code/hooks). You write rules in a YAML file (which tools to allow, which to block, which to still ask about) and Tower enforces them automatically. No more allow-fatigue, no more hoping Claude doesn't `rm -rf` something important.
+Tower gives you a middle ground. It sits between Claude Code and tool execution as a [PreToolUse hook](https://docs.anthropic.com/en/docs/claude-code/hooks) and lets you define rules for what gets auto-allowed, what gets blocked, and what still asks. You keep the protection where it matters and skip the prompts where it doesn't.
 
 ## Install
 
